@@ -93,6 +93,7 @@ export default [
 				{ allowWholeFile: true },
 			],
 			'capitalized-comments': 'off',
+			'no-await-in-loop': 'warn',
 			'@typescript-eslint/consistent-type-definitions': 'off',
 			'@typescript-eslint/method-signature-style': 'error',
 			'@typescript-eslint/no-redeclare': 'off',

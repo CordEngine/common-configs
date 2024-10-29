@@ -46,6 +46,7 @@
 		"prettier": "^3.0.0"
 	},
 	"devDependencies": {
+		"@types/bun": "^1.1.12",
 		"@types/eslint__js": "^8.42.3",
 		"eslint": "^9.13.00",
 		"markdownlint-cli2": "^0.14.0",

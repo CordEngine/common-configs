@@ -1,0 +1,8 @@
+name: PR
+
+on:
+  pull_request:
+    branches: main
+jobs:
+  ci:
+    uses: cordengine/.github/.github/workflows/lint.yml@main

@@ -5,4 +5,4 @@ on:
     branches: main
 jobs:
   ci:
-    uses: cordengine/.github/.github/workflows/lint.yml@main
+    uses: cordengine/.github/.github/workflows/pr.yml@main

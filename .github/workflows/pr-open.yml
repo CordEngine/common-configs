@@ -15,3 +15,5 @@ permissions:
 jobs:
   dco-assistant:
     uses: cordengine/.github/.github/workflows/dco-assistant.yml@main
+    secrets:
+      WORKFLOW_PAT: ${{ secrets.WORKFLOW_PAT }}

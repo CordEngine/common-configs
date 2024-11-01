@@ -1,0 +1,55 @@
+{
+	"name": "@cordengine/common-configs",
+	"version": "0.0.0",
+	"description": "Common configurations for all Cord Engine projects.",
+	"author": "Brian Lister <brian@sparkforge.dev (http://sparkforge.dev/)",
+	"contributors": [],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/CordEngine/common-config.git"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"inspect": "bunx @eslint/config-inspector",
+		"lint": "bun lint:prettier; bun lint:eslint; bun lint:markdown; bun lint:tsc",
+		"lint:eslint": "eslint",
+		"lint:markdown": "markdownlint-cli2 '**/*.md' '#node_modules'",
+		"lint:prettier": "prettier . --write --log-level warn;",
+		"lint:tsc": "tsc --noEmit --skipLibCheck"
+	},
+	"exports": {
+		"./cspell": "./cspell/cspell-ext.json",
+		"./eslint": "./eslint/eslint-config.js",
+		"./markdownlint": "./markdownlint/markdownlint.json",
+		"./markdownlint-cli2": "./markdownlint/markdownlint-cli2.jsonc",
+		"./prettier": "./prettier/prettier-config.js"
+	},
+	"dependencies": {
+		"@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
+		"@eslint/js": "^9.13.0",
+		"@stylistic/eslint-plugin": "^2.9.0",
+		"eslint-config-xo-typescript": "^7.0.0",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-n": "^17.11.1",
+		"eslint-plugin-no-use-extend-native": "^0.7.2",
+		"eslint-plugin-promise": "^7.1.0",
+		"eslint-plugin-security": "^3.0.1",
+		"eslint-plugin-sonarjs": "^2.0.4",
+		"eslint-plugin-unicorn": "^56.0.0",
+		"typescript-eslint": "^8.11.0"
+	},
+	"peerDependencies": {
+		"eslint": "^9.0.00",
+		"typescript": "^5.0.0",
+		"markdownlint-cli2": "^0.14.0",
+		"prettier": "^3.0.0"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.1.12",
+		"@types/eslint__js": "^8.42.3",
+		"eslint": "^9.13.00",
+		"markdownlint-cli2": "^0.14.0",
+		"prettier": "^3.3.3"
+	}
+}

@@ -1,0 +1,29 @@
+name: 'PR Checks'
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  check-dco-label:
+    runs-on: ubuntu-latest
+    outputs:
+      dco-signed: ${{ steps.check-label.outputs.dco-signed }}
+    steps:
+      - id: check-label
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const labels = context.payload.pull_request.labels.map(label => label.name);
+            const dcoSigned = labels.includes('🪪 status: DCO Signed');
+            core.setOutput('dco-signed', dcoSigned);
+
+  lint-and-test:
+    needs: check-dco-label
+    if: needs.check-dco-label.outputs.dco-signed == 'true'
+    uses: cordengine/.github/.github/workflows/lint-and-test.yml@main
+
+  coderabbit-check:
+    needs: lint-and-test
+    uses: cordengine/.github/.github/workflows/cr-tag-validate.yml@main

@@ -1,4 +1,4 @@
-name: 'PR Open'
+name: 'DCO Verification'
 
 on:
   issue_comment:
